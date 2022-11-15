@@ -70,6 +70,7 @@ const layouts = {
     )
   },
   raw(h, currentItem, index, list) {
+    debugger
     const config = currentItem.__config__
     const child = renderChildren.apply(this, arguments)
     return <render key={config.renderKey} conf={currentItem} onInput={ event => {

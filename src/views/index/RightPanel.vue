@@ -84,11 +84,18 @@
           <el-form-item v-if="activeData.style&&activeData.style.width!==undefined" label="组件宽度">
             <el-input v-model="activeData.style.width" placeholder="请输入组件宽度" clearable />
           </el-form-item>
-          <el-form-item v-if="activeData.__vModel__!==undefined" label="默认值">
+          <el-form-item v-if="activeData.__vModel__!==undefined && !activeData.__config__.unModel" label="默认值">
             <el-input
               :value="setDefaultValue(activeData.__config__.defaultValue)"
               placeholder="请输入默认值"
               @input="onDefaultValueInput"
+            />
+          </el-form-item>
+          <el-form-item v-if="activeData.__config__.innerText!==undefined" label="显示文本">
+            <el-input
+              :value="setDefaultValue(activeData.__config__.innerText)"
+              placeholder="请输入显示文本"
+              @input="onInnerTextInput"
             />
           </el-form-item>
           <el-form-item v-if="activeData.__config__.tag==='el-checkbox-group'" label="至少应选">
@@ -654,7 +661,7 @@ import TreeNodeDialog from '@/views/index/TreeNodeDialog'
 import { isNumberStr } from '@/utils/index'
 import IconsDialog from './IconsDialog'
 import {
-  inputComponents, selectComponents, layoutComponents
+  inputComponents, selectComponents, layoutComponents, otherComponents
 } from '@/components/generator/config'
 import { saveFormConf } from '@/utils/db'
 
@@ -801,6 +808,10 @@ export default {
         {
           label: '选择型组件',
           options: selectComponents
+        },
+        {
+          label: '其他组件',
+          options: otherComponents
         }
       ]
     },
@@ -912,6 +923,13 @@ export default {
         )
       }
     },
+    onInnerTextInput(str) {
+      this.$set(
+        this.activeData.__config__,
+        'innerText',
+        str
+      )
+    },
     onSwitchValueInput(val, name) {
       if (['true', 'false'].indexOf(val) > -1) {
         this.$set(this.activeData, name, JSON.parse(val))
@@ -962,6 +980,7 @@ export default {
     tagChange(tagIcon) {
       let target = inputComponents.find(item => item.__config__.tagIcon === tagIcon)
       if (!target) target = selectComponents.find(item => item.__config__.tagIcon === tagIcon)
+      if (!target) target = otherComponents.find(item => item.__config__.tagIcon === tagIcon)
       this.$emit('tag-change', target)
     },
     changeRenderKey() {

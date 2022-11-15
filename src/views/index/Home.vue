@@ -130,7 +130,7 @@ import FormDrawer from './FormDrawer'
 import JsonDrawer from './JsonDrawer'
 import RightPanel from './RightPanel'
 import {
-  inputComponents, selectComponents, layoutComponents, formConf
+  inputComponents, selectComponents, otherComponents, layoutComponents, formConf
 } from '@/components/generator/config'
 import {
   exportDefault, beautifierConf, isNumberStr, titleCase, deepClone, isObjectObject
@@ -175,6 +175,7 @@ export default {
       inputComponents,
       selectComponents,
       layoutComponents,
+      otherComponents,
       labelWidth: 100,
       drawingList: drawingDefalut,
       drawingData: {},
@@ -196,6 +197,10 @@ export default {
         {
           title: '选择型组件',
           list: selectComponents
+        },
+        {
+          title: '其他组件',
+          list: otherComponents
         },
         {
           title: '布局型组件',

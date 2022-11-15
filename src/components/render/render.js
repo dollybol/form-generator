@@ -92,7 +92,8 @@ function makeDataObject() {
     slot: null,
     key: null,
     ref: null,
-    refInFor: true
+    refInFor: true,
+    innerText: this.conf.__config__.innerText
   }
 }
 
@@ -104,9 +105,9 @@ export default {
     }
   },
   render(h) {
-    const dataObject = makeDataObject()
+    const dataObject = makeDataObject.call(this)
     const confClone = deepClone(this.conf)
-    const children = this.$slots.default || []
+    const children = (dataObject.innerText ? [dataObject.innerText] : []).concat(this.$slots.default || [])
 
     // 如果slots文件夹存在与当前tag同名的文件，则执行文件中的代码
     mountSlotFiles.call(this, h, confClone, children)
