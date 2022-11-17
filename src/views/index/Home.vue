@@ -97,7 +97,6 @@
       @tag-change="tagChange"
       @fetch-data="fetchData"
     />
-
     <form-drawer
       :visible.sync="drawerVisible"
       :form-data="formData"
@@ -145,7 +144,7 @@ import logo from '@/assets/logo.png'
 import CodeTypeDialog from './CodeTypeDialog'
 import DraggableItem from './DraggableItem'
 import {
-  getDrawingList, saveDrawingList, getIdGlobal, saveIdGlobal, getFormConf
+  getDrawingList, saveDrawingList, getIdGlobal, saveIdGlobal, getFormConf, clearFormConf
 } from '@/utils/db'
 import loadBeautifier from '@/utils/loadBeautifier'
 
@@ -386,6 +385,7 @@ export default {
         () => {
           this.drawingList = []
           this.idGlobal = 100
+          clearFormConf()
         }
       )
     },

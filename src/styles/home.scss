@@ -188,7 +188,7 @@ $lighterBlue: #409EFF;
     border: 1px dashed #ccc;
   }
   .el-form-item{
-    padding: 12px 10px;
+    padding: 15px 10px 15px 10px;
   }
 }
 .drawing-row-item{
@@ -238,11 +238,11 @@ $lighterBlue: #409EFF;
     display: none;
     position: absolute;
     top: -10px;
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 6px;
     font-size: 12px;
     border: 1px solid;
     cursor: pointer;

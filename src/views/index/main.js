@@ -4,8 +4,10 @@ import router from '@/router'
 import '@/styles/index.scss'
 import '@/icons'
 import axios from 'axios'
+import ELEMENT from 'element-ui'
 import Tinymce from '@/components/tinymce/index.vue'
 
+Vue.use(ELEMENT, { size: 'mini' })
 Vue.component('tinymce', Tinymce)
 
 Vue.config.productionTip = false

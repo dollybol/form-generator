@@ -44,11 +44,15 @@ export function saveTreeNodeId(id) {
 }
 
 export function getFormConf() {
-  const str = localStorage.getItem(FORM_CONF)
-  if (str) return JSON.parse(str)
+  // const str = localStorage.getItem(FORM_CONF)
+  // if (str) return JSON.parse(str)
   return null
 }
 
 export function saveFormConf(obj) {
-  localStorage.setItem(FORM_CONF, JSON.stringify(obj))
+  // localStorage.setItem(FORM_CONF, JSON.stringify(obj))
+}
+
+export function clearFormConf(obj) {
+  localStorage.removeItem(FORM_CONF)
 }

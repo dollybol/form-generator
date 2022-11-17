@@ -2,12 +2,13 @@
 export const formConf = {
   formRef: 'form',
   formModel: 'pFormData',
-  labelPosition: 'left',
+  labelPosition: 'right',
   labelWidth: 100,
   formRules: 'rules',
   gutter: 10,
   disabled: false,
   span: 24,
+  unFocusedComponentBorder: true,
   formBtns: true
 }
 
@@ -49,7 +50,7 @@ export const inputComponents = [
   {
     __config__: {
       label: '多行文本',
-      labelWidth: null,
+      labelWidth: '',
       showLabel: true,
       tag: 'el-input',
       tagIcon: 'textarea',
@@ -510,25 +511,24 @@ export const selectComponents = [
 
 // 其他组件 【左面板】
 export const otherComponents = [
-  {
-    // 组件的自定义配置
-    __config__: {
-      label: '超链接',
-      showLabel: true,
-      changeTag: true,
-      tag: 'el-link',
-      tagIcon: 'link',
-      innerText: '显示文本',
-      layout: 'colFormItem',
-      unModel: true, // 无默认值字段模式
-      span: 24,
-      document: 'https://element.eleme.cn/#/zh-CN/component/link'
-    },
-    // 组件的插槽属性
-    __slot__: {
-    },
-    type: 'primary'
-  }
+  // {
+  //   // 组件的自定义配置
+  //   __config__: {
+  //     label: '超链接',
+  //     showLabel: true,
+  //     changeTag: false,
+  //     tag: 'el-link',
+  //     tagIcon: 'link',
+  //     layout: 'colFormItem',
+  //     innerText: '',
+  //     span: 24,
+  //     document: 'https://element.eleme.cn/#/zh-CN/component/link'
+  //   },
+  //   // 组件的插槽属性
+  //   __slot__: {
+  //   },
+  //   type: 'primary'
+  // }
 ]
 
 // 布局型组件 【左面板】
